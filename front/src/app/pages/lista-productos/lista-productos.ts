@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { ProductosService } from '../../services/productos/productos-service';
 import { Productos } from '../../interfaces/productos';
 import { Router } from '@angular/router';
+import { CarritoService } from '../../services/carrito/carrito-service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export default class ListaProductos {
   private productosService = inject(ProductosService);
+  private carritoService = inject(CarritoService);
+
   private router = inject(Router);
 
   productosDelServicio = signal<Productos[]>([]);
@@ -30,5 +33,10 @@ export default class ListaProductos {
   direccionDetalle(id: number) {
     // console.log('el id del producto es: ', id);
     this.router.navigate([`/detalle-producto/${id}`]);
+  }
+
+  agregarAlCarrito(producto: Productos) {
+    this.carritoService.agregarProducto(producto);
+    console.log('se añadio: ', producto.title);
   }
 }
