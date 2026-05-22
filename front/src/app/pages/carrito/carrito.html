@@ -1,0 +1,42 @@
+<div class="carrito-container">
+  <h1>Tu Carrito de Compras</h1>
+
+  @for (item of listaProductos(); track item.producto.id) {
+    <div class="carrito-item">
+      <div class="item-imagen">
+        <img [src]="item.producto.image" [alt]="item.producto.title" />
+      </div>
+
+      <div class="item-detalles">
+        <h3>{{ item.producto.title }}</h3>
+        <p class="item-precio">Precio unitario: {{ item.producto.price | currency }}</p>
+      </div>
+
+      <div class="item-acciones">
+        <div class="cantidad-control">
+          <button class="btn-control" (click)="disminuirCantidad(item.producto.id)">-</button>
+          <span class="cantidad-valor">{{ item.cantidad }}</span>
+          <button class="btn-control" (click)="aumentarCantidad(item.producto.id)">+</button>
+          <button class="btn-eliminar" (click)="eliminarDelCarrito(item.producto.id)">🗑️</button>
+        </div>
+
+        <p class="item-subtotal">Subtotal: {{ item.producto.price * item.cantidad | currency }}</p>
+      </div>
+    </div>
+  } @empty {
+    <div class="carrito-vacio">
+      <p>Tu carrito está brillando de lo vacío que está... 🛒</p>
+      <button class="btn-comprar" [routerLink]="['/productos']">Ir a la tienda</button>
+    </div>
+  }
+
+  @if (totalArticulos() > 0) {
+    <div class="carrito-resumen">
+      <h2>Resumen de la orden</h2>
+      <p>
+        Total de artículos: <strong>{{ totalArticulos() }}</strong>
+      </p>
+      <button class="btn-pagar">Proceder al pago</button>
+    </div>
+  }
+</div>

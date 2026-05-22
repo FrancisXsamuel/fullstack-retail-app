@@ -1,0 +1,36 @@
+<div class="detalle-page-container">
+  <button class="btn-regresar" [routerLink]="['/productos']">&larr; Volver al catálogo</button>
+
+  <main class="detalle-wrapper">
+    <section class="detalle-imagen-section">
+      <div class="imagen-contenedor">
+        <img [src]="producto()?.image" [alt]="producto()?.title" />
+      </div>
+    </section>
+
+    <section class="detalle-info-section">
+      <span class="detalle-categoria">Categoría</span>
+      <h1 class="detalle-titulo">{{ producto()?.title }}</h1>
+
+      <div class="detalle-precio-box">
+        <span class="detalle-precio">${{ producto()?.price }}</span>
+      </div>
+
+      <div class="detalle-descripcion-box">
+        <h3>Descripción</h3>
+        <p class="detalle-descripcion">
+          {{ producto()?.description }}
+        </p>
+      </div>
+
+      <div class="detalle-acciones">
+        <div class="cantidad-selector">
+          <button class="btn-cantidad">-</button>
+          <span class="cantidad-numero">1</span>
+          <button class="btn-cantidad">+</button>
+        </div>
+        <button class="btn-comprar" (click)="agregarAlCarrito()">Añadir al carrito</button>
+      </div>
+    </section>
+  </main>
+</div>

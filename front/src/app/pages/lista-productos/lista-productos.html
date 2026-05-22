@@ -1,0 +1,27 @@
+<div class="productos-page-container">
+  <header class="productos-header">
+    <h1>Nuestro Catálogo</h1>
+    <p>Explora los mejores productos disponibles</p>
+  </header>
+
+  <main class="productos-grid">
+    @for (producto of productosDelServicio(); track producto.id) {
+      <article class="producto-card">
+        <div class="producto-image-wrapper" (click)="direccionDetalle(producto.id)">
+          <img [src]="producto.image" [alt]="producto.title" />
+        </div>
+
+        <div class="producto-info">
+          <span class="producto-categoria">{{ producto.category }}</span>
+          <h2 class="producto-titulo">{{ producto.title }}</h2>
+          <p class="producto-descripcion">{{ producto.description }}</p>
+
+          <div class="producto-footer-actions">
+            <span class="producto-precio">${{ producto.price }}</span>
+            <button class="btn-agregar-carrito">Añadir</button>
+          </div>
+        </div>
+      </article>
+    }
+  </main>
+</div>

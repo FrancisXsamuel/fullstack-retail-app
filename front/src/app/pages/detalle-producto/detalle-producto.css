@@ -1,0 +1,194 @@
+.detalle-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #f8fafc;
+  background-color: #0f172a;
+  min-height: 80vh;
+}
+
+/* Botón Regresar */
+.btn-regresar {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.btn-regresar:hover {
+  color: #2dd4bf;
+}
+
+/* Disposición en dos columnas */
+.detalle-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 4rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 3rem;
+}
+
+/* --- COLUMNA IZQUIERDA: IMAGEN --- */
+.detalle-imagen-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-contenedor {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.imagen-contenedor img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --- COLUMNA DERECHA: INFORMACIÓN --- */
+.detalle-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detalle-categoria {
+  color: #2dd4bf;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.detalle-titulo {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #f8fafc;
+}
+
+.detalle-precio-box {
+  margin-bottom: 2rem;
+}
+
+.detalle-precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.detalle-descripcion-box {
+  margin-bottom: 2.5rem;
+  border-top: 1px solid #334155;
+  padding-top: 1.5rem;
+}
+
+.detalle-descripcion-box h3 {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+}
+
+.detalle-descripcion {
+  color: #94a3b8;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* --- ACCIONES DE COMPRA --- */
+.detalle-acciones {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Selector de cantidad */
+.cantidad-selector {
+  display: flex;
+  align-items: center;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.btn-cantidad {
+  background: none;
+  border: none;
+  color: #f8fafc;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 45px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cantidad:hover {
+  background-color: #334155;
+}
+
+.cantidad-numero {
+  padding: 0 1rem;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+  flex-grow: 1;
+  background-color: #2dd4bf;
+  color: #0f172a;
+  border: none;
+  height: 45px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #14b8a6;
+}
+
+.btn-comprar:active {
+  transform: scale(0.98);
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .detalle-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .imagen-contenedor {
+    height: 300px;
+  }
+
+  .detalle-titulo {
+    font-size: 1.75rem;
+  }
+}
